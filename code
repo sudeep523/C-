@@ -1,0 +1,284 @@
+1). Write a C++ Program to display Names, Roll No., and grades of 3 students who have appeared in the examination. Declare the class of name, Roll No. and grade. Create an array of class objects. Read and display the contents of the array. 
+
+#include <iostream>  
+using namespace std;  
+#define MAX 10     
+class student  
+{  
+private:  
+char name [30];  
+int   rollNo;  
+int   total;  
+float perc;  
+public:  
+void getDetails(void);        //member function to get student's details  
+void putDetails(void);        //member function to print student's details  
+}; 
+void student:: getDetails(void)  //member function definition, outside of the class  
+{  
+} 
+cout << "Enter name: “;  
+cin >> name;  
+cout << "Enter roll number: ";  
+cin >> rollNo;  
+cout << "Enter total marks out of 500: ";  
+cin >> total;  
+perc=(float)total/500*100;  
+void student: putDetails(void) //member function definition, outside of the class  
+{  
+cout << "Student details:\n";  
+cout << "Name:"<< name << “, Roll Number:" << rollNo << “, Total:" << total << “, 
+Percentage:"  
+<< perc;   
+} 
+int main ()  
+{  
+student std[MAX] ;      //array of objects creation  
+int n, loop;  
+cout << "Enter total number of students: ";  
+cin >> n;  
+for (loop=0; loop< n; loop++)  
+{  
+}  
+cout << "Enter details of student " << loop+1 << ":\n";  
+std[loop] .getDetails();  
+cout << endl;  
+for(loop=0;loop< n; loop++)  
+{  
+}  
+cout << "Details of student " << (loop+1) << ":\n";  
+std[loop]. putDetails(); 
+return 0;  
+} 
+
+Output: 
+
+Enter total number of students: 3 
+Enter details of student 1: 
+Enter name: ravi 
+Enter roll number: 123 
+Enter total marks out of 500: 234 
+Enter details of student 2: 
+Enter name: john 
+Enter roll number: 256 
+Enter total marks out of 500: 342 
+Enter details of student 3: 
+Enter name: seetal 
+Enter roll number: 76 
+Enter total marks out of 500: 455 
+Details of student 1: 
+Student details: 
+Name: ravi, Roll Number:123,Total:234,Percentage:46.8Details of student 2: 
+Student details: 
+Name: john, Roll Number:256, Total:342,Percentage:68.4Details of student 3: 
+Student details: 
+Name: seetal, Roll Number:76, Total:455, Percentage:91 
+
+  
+2). Write a C++ program to create a class triangle, read the length and height, 
+calculate the area and display the result. 
+ 
+         #include <iostream> 
+         using namespace std; 
+           class Triangle 
+       { 
+                  private: 
+                           float length; 
+                          float height;     
+                   public: 
+                                        // Method to set the length and height 
+                   void setDimensions(float l, float h) 
+                    { 
+                            length = l; 
+                            height = h; 
+                     }         
+        // Method to calculate the area of the triangle 
+               float area() 
+             { 
+                       return 0.5 * length * height; 
+              }         
+        // Method to display the area 
+        void displayArea()  
+            { 
+            cout << "The area of the triangle is: " << area() << endl; 
+           } 
+     }; 
+ 
+  int main () 
+ { 
+    Triangle t; 
+float l, h;     
+cout << "Enter the length of the triangle: "; 
+cin >> l; 
+cout << "Enter the height of the triangle: "; 
+cin >> h;     
+t.setDimensions(l, h); 
+t.displayArea();     
+return 0; 
+} 
+
+Output: 
+
+Enter the length of the triangle: 4 
+Enter the height of the triangle: 6 
+The area of the triangle is: 12 
+Enter the length of the triangle: 7 
+Enter the height of the triangle: 8 
+The area of the triangle is: 28 
+
+3. Write a C++ program to find the area of rectangle. Use constructors to initialize 
+length and breadth. 
+ 
+ 
+#include <iostream> 
+using namespace std; 
+class Rectangle { 
+    private: 
+        float length; 
+        float breadth; 
+     
+    public: 
+                                                       // Constructor to initialize length and breadth 
+        Rectangle (float l, float b) 
+          { 
+            length = l; 
+            breadth = b; 
+        } 
+         
+                                               // Method to calculate the area of the rectangle 
+        float area (   )  
+          { 
+            return length * breadth; 
+           } 
+         
+                                               // Method to display the area 
+ 
+        void displayArea ( ) 
+           { 
+            cout << "The area of the rectangle is: " << area () << endl; 
+           } 
+};  
+ 
+int main() 
+   { 
+    float l, b;      
+    cout << "Enter the length of the rectangle: "; 
+    cin >> l; 
+    cout << "Enter the breadth of the rectangle: "; 
+    cin >> b;     
+    // Create rectangle object using constructor                      
+     
+    Rectangle rect (l, b);                                               
+        rect. displayArea ( )                                                   
+        return 0;                                                                         
+    }  
+
+Output: 
+
+Enter the length of the rectangle:2
+Enter the breadth of the rectangle:3
+The area of the rectangle is: 6 
+
+4.  Write a C++ program to overload binary + operator. 
+  
+#include <iostream> 
+using namespace std; 
+class Complex 
+{ 
+private: 
+double real; 
+double imag; 
+public: 
+// Default constructor 
+Complex() {} 
+// Parameterized constructor 
+Complex(double r, double i) 
+{ 
+real = r; 
+imag = i; 
+} 
+// Overloading the + operator 
+Complex operator + (Complex param) 
+{ 
+Complex temp; 
+temp.real = real + param.real; 
+temp.imag = imag + param.imag; 
+return temp; 
+} 
+// Function to display complex number 
+void print() 
+{ 
+} 
+}; 
+cout << real << " + i " << imag << endl; 
+int main() 
+{ 
+Complex C1(3.1, 1.5); 
+Complex C2(1.2, 2.2); 
+Complex C3; 
+// Using overloaded + operator 
+C3 = C1 + C2; 
+C1.print(); 
+C2.print(); 
+C3.print(); 
+return 0; 
+} 
+
+OUTPUT: 
+
+3.1 + i 1.5 
+1.2 + i 2.2 
+4.3 + i 3.7
+
+5. Write a C++ program to create multilevel inheritance. 
+ 
+  #include <iostream> 
+using namespace std; 
+class base //single base class 
+{ 
+  public: 
+  int x; 
+  void getdata() 
+  { 
+     cout << "Enter value of x= "; cin >> x; 
+  } 
+}; 
+class derive1 : public base // derived class from base class 
+{ 
+  public: 
+  int y; 
+  void readdata() 
+  { 
+      cout << "\nEnter value of y= "; cin >> y; 
+  } 
+}; 
+class derive2 : public derive1   // derived from class derive1 
+{ 
+  private: 
+  int z; 
+  public: 
+  void indata() 
+  { 
+     cout << "\nEnter value of z= "; cin >> z; 
+  } 
+  void product () 
+{ 
+} 
+}; 
+cout << "\nProduct= " << x * y * z; 
+int main () 
+{ 
+}    
+derive2 a;     //object of derived class 
+a.getdata(); 
+a.readdata(); 
+a.indata(); 
+a.product(); 
+return 0; 
+
+Output: 
+
+Enter value of x= 3 
+Enter value of y= 4 
+Enter value of z= 6 
+Product= 72
