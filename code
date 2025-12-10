@@ -75,8 +75,7 @@ Student details:
 Name: seetal, Roll Number:76, Total:455, Percentage:91 
 
   
-2). Write a C++ program to create a class triangle, read the length and height, 
-calculate the area and display the result. 
+2). Write a C++ program to create a class triangle, read the length and height, calculate the area and display the result. 
  
          #include <iostream> 
          using namespace std; 
