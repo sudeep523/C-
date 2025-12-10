@@ -125,9 +125,8 @@ Enter the length of the triangle: 7
 Enter the height of the triangle: 8 
 The area of the triangle is: 28 
 
-3. Write a C++ program to find the area of rectangle. Use constructors to initialize 
+3). Write a C++ program to find the area of rectangle. Use constructors to initialize 
 length and breadth. 
- 
  
 #include <iostream> 
 using namespace std; 
@@ -137,21 +136,15 @@ class Rectangle {
         float breadth; 
      
     public: 
-                                                       // Constructor to initialize length and breadth 
         Rectangle (float l, float b) 
           { 
             length = l; 
             breadth = b; 
         } 
-         
-                                               // Method to calculate the area of the rectangle 
         float area (   )  
           { 
             return length * breadth; 
            } 
-         
-                                               // Method to display the area 
- 
         void displayArea ( ) 
            { 
             cout << "The area of the rectangle is: " << area () << endl; 
@@ -178,7 +171,7 @@ Enter the length of the rectangle:2
 Enter the breadth of the rectangle:3
 The area of the rectangle is: 6 
 
-4.  Write a C++ program to overload binary + operator. 
+4).  Write a C++ program to overload binary + operator. 
   
 #include <iostream> 
 using namespace std; 
@@ -229,7 +222,7 @@ OUTPUT:
 1.2 + i 2.2 
 4.3 + i 3.7
 
-5. Write a C++ program to create multilevel inheritance. 
+5). Write a C++ program to create multilevel inheritance. 
  
   #include <iostream> 
 using namespace std; 
@@ -281,3 +274,156 @@ Enter value of x= 3
 Enter value of y= 4 
 Enter value of z= 6 
 Product= 72
+
+6).
+
+7).	Write a C++ program to add two numbers using templates.
+
+ #include<iostream>
+using namespace std;
+template<class T> T add (T &a,T &b)
+{
+  T result=a+b;
+  return result;
+}
+int main ()
+{
+  int i=2;
+  int j=3;
+  float m=2.3;
+  float n=1.2;
+  cout<<" Enter two integer numbers:";
+  cin>>i>>j;
+  cout<<" Enter two real numbers";
+  cin>>m>>n;
+  cout<<"Addition of integer numbers:"<<add(i,j);
+  cout<<'\n';
+  cout<<"Addition of real numbers:"<<add(m,n);
+  return 0;
+}
+
+Output:
+
+Enter two integer numbers :2 3
+ Enter two real numbers2.2 2.2
+Addition of integer numbers :5
+Addition of real numbers:4.4
+
+8).	Write a C++ program to create an array of pointers. Invoke functions using array objects.
+
+#include <iostream>
+using namespace std;
+class Student {
+    string name;
+    int age;
+
+public:
+    void setDetails(string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void display ( )
+     {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+int main (  )
+ {
+    const int size = 3;
+
+    // Array of pointers to Student objects
+    Student* students[size];
+
+    // Create Student objects dynamically and store their addresses
+    for (int i = 0; i < size; ++i) {
+        students[i] = new Student (); // allocate memory
+        string name;
+        int age;
+        cout << "Enter name for student " << i + 1 << ": ";
+        cin >> name;
+        cout << "Enter age for student " << i + 1 << ": ";
+        cin >> age;
+        students[i]->setDetails (name, age);
+    }
+
+    cout << "\nStudent Details:\n";
+    for (int i = 0; i < size; ++i) {
+        students[i]->display ();  // Call function using pointer
+    }
+
+    // Free dynamically allocated memory
+    for (int i = 0; i < size; ++i) {
+        delete students[i];
+    }
+    return 0;
+}
+
+Output:
+
+Enter name for student 1: Prakash
+Enter age for student 1: 14
+Enter name for student 2: Sneha
+Enter age for student 2: 26
+Enter name for student 3: Sham
+Enter age for student 3: 16
+
+Student Details:
+Name: Prakash, Age: 14
+Name: Sneha, Age: 26
+Name: Sham, Age: 16
+
+9). Write a C++ to demonstarte file reading and writing operations on files
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main () {
+  // Create a text file
+  ofstream MyWriteFile("filename.txt");
+
+  // Write to the file
+  MyWriteFile << " KARNATAKA";
+ 
+  // Close the file
+  MyWriteFile.close();
+
+  // Create a text string, which is used to output the text file
+  string myText;
+
+  // Read from the text file
+  ifstream MyReadFile("filename.txt");
+
+  // Use a while loop together with the getline() function to read the file line by line
+  while (getline (MyReadFile, myText)) {
+    // Output the text from the file
+    cout << myText;
+  }
+  // Close the file
+  MyReadFile.close();
+}
+
+Output:
+
+karnataka
+
+10.	Write a C++ to illustrate the concepts of console I/O operations.
+
+#include <iostream>
+using namespace std;
+int main ()
+{
+    char ch;
+    cout<<"Press any key: ";
+    ch = cin.get();
+    cout << "You have pressed one key: ";
+    cout.put(ch);
+
+    return 0;
+}
+Output:
+Press any key: 
+You have pressed one key:
